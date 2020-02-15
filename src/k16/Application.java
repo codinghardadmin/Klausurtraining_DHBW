@@ -11,8 +11,10 @@ public class Application {
         uploadUser.addListener(sub1);
         uploadUser.addListener(sub2);
 
-        IEncryption encryption = new AES();
+        Context context = new Context(new AES());
+        uploadUser.uploadFile(uploadUser, "datei1.txt", context);
         
-        uploadUser.uploadFile(uploadUser, "datei.txt", encryption);
+        context = new Context(new RSA());
+        uploadUser.uploadFile(uploadUser, "datei2.txt", context);
     }
 }

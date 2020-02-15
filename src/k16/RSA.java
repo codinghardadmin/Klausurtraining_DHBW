@@ -1,6 +1,6 @@
 package k16;
 
-public class RSA implements IEncryption {
+public class RSA implements IEncryptionStrategy {
 
 	@Override
 	public void encrypt(Document document) {

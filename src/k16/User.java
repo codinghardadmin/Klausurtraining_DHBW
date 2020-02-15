@@ -3,10 +3,9 @@ package k16;
 import java.util.ArrayList;
 
 public class User implements IUploadListener {
+	
     private ArrayList<IUploadListener> listeners;
     private String name;
-    
-    
 
     public String getName() {
 		return name;
@@ -21,10 +20,10 @@ public class User implements IUploadListener {
         this.name = name;
     }
 
-    public void uploadFile(User uploadUser, String fileName, IEncryption encryption) {
+    public void uploadFile(User uploadUser, String fileName, Context context) {
     	Document doc = new Document(uploadUser, fileName);
     	
-    	encryption.encrypt(doc);
+    	context.executeStrategyEncrypt(doc);
     	
         for (IUploadListener listener : listeners)
             listener.upload(doc);

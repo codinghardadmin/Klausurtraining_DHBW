@@ -1,7 +1,9 @@
 package k44;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
 public class Application {
     public static void main(String... args) {        
@@ -21,7 +23,7 @@ public class Application {
             	
             	for (int k = 1; k <= 3; k++) {
             		String kfname = ufname + "KF" + k;
-                	Fach kapazitatesfach = new KapazitaetsFach(kfname);
+                	Fach kapazitatesfach = new KapazitaetsFach(kfname, getRandomGegenstand());
                 	kapazitatesfach.addIdTag(kfname);
                 	
                 	unterfach.addUnit(kapazitatesfach);
@@ -51,5 +53,18 @@ public class Application {
         
         koffer.closeKoffer(keyn);
         koffer.openKoffer(keyk);
+    }
+    
+    public static Gegenstand getRandomGegenstand() {
+    	Random random = new Random();
+    	List<String> gegenstaende = Arrays.asList(
+    		"Adapter",
+    		"Buch",
+    		"Schokolade",
+    		"Schuhe",
+    		"Hose"
+    	);
+    	
+    	return new Gegenstand(gegenstaende.get(random.nextInt(gegenstaende.size())));
     }
 }

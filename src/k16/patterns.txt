@@ -1,4 +1,4 @@
 K16 Cloud
 
 Observer
-Bridge
+Strategy

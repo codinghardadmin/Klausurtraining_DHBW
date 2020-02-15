@@ -1,6 +1,6 @@
 package k16;
 
-public class AES implements IEncryption {
+public class AES implements IEncryptionStrategy {
 
 	@Override
 	public void encrypt(Document document) {
